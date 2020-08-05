@@ -140,7 +140,7 @@ esp32s2_lin_amd64:
 
 riscv32_esp_lin_amd64:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain:2-05fa87be
   variables:
     PLATFORM_NAME: "linux-amd64"
     CONF_TARGET: "riscv32-esp-elf"
