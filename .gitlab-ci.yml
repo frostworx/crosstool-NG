@@ -126,35 +126,35 @@ before_script:
 
 esp32_lin_amd64:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain:2-05fa87be
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain
   variables:
     PLATFORM_NAME: "linux-amd64"
     CONF_TARGET: "xtensa-esp32-elf"
 
 esp32s2_lin_amd64:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain:2-05fa87be
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain
   variables:
     PLATFORM_NAME: "linux-amd64"
     CONF_TARGET: "xtensa-esp32s2-elf"
 
 riscv32_esp_lin_amd64:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain:2-05fa87be
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain
   variables:
     PLATFORM_NAME: "linux-amd64"
     CONF_TARGET: "riscv32-esp-elf"
 
 esp32_lin_i686:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain-x86:2-05fa87be
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain-x86
   variables:
     PLATFORM_NAME: "linux-i686"
     CONF_TARGET: "xtensa-esp32-elf"
 
 esp32s2_lin_i686:
   extends: .build_template_linux
-  image: $CI_DOCKER_REGISTRY/esp32-toolchain-x86:2-05fa87be
+  image: $CI_DOCKER_REGISTRY/esp32-toolchain-x86
   variables:
     PLATFORM_NAME: "linux-i686"
     CONF_TARGET: "xtensa-esp32s2-elf"
