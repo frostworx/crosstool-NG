@@ -21,9 +21,9 @@ variables:
   # let's do not compress artifacts because we already use compressed archives
   ARTIFACT_COMPRESSION_LEVEL: "fastest"
 
-  ESP_COMPILER_TESTS_BRANCH: "esp-2022r1-2-branch"
+  ESP_COMPILER_TESTS_BRANCH: "esp-2021r2-patch4-branch"
 
-  GCC_VER: "11.2.0"
+  GCC_VER: "8.4.0"
 
   ARCHIVE_TOOL: "tar -cJvf" # 'v' we need to check the contents of the archive by log
   UNARCHIVE_TOOL: "tar -xf"
