@@ -83,7 +83,7 @@ do_cloog_for_host() {
 
     cloog_opts+=( "host=${CT_HOST}" )
     cloog_opts+=( "prefix=${CT_HOST_COMPLIBS_DIR}" )
-    cloog_opts+=( "cflags=${CT_CFLAGS_FOR_HOST}" )
+    cloog_opts+=( "cflags=${CT_CFLAGS_FOR_HOST// --std=c99}" )
     cloog_opts+=( "ldflags=${CT_LDFLAGS_FOR_HOST}" )
     do_cloog_backend "${cloog_opts[@]}"
 
