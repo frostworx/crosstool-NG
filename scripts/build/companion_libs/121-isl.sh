@@ -14,7 +14,7 @@ if [ "${CT_ISL}" = "y" ]; then
 # Download ISL
 do_isl_get() {
     CT_GetFile "isl-${CT_ISL_VERSION}" \
-        http://isl.gforge.inria.fr
+        https://src.fedoraproject.org/repo/pkgs/isl/isl-0.14.tar.xz/3d6b6a1cddd165fae2af5487c5531b09
 }
 
 # Extract ISL

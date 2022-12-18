@@ -1,0 +1,51 @@
+--- gdb-7.10/gdb/python/python.cO	2015-08-28 23:22:07.000000000 +0200
++++ gdb-7.10/gdb/python/python.c	2022-12-18 12:54:17.520496635 +0100
+@@ -1566,8 +1566,6 @@
+ 
+ #endif /* HAVE_PYTHON */
+ 
+-
+-
+ /* Lists for 'set python' commands.  */
+ 
+ static struct cmd_list_element *user_set_python_list;
+@@ -1622,6 +1620,17 @@
+ }
+ #endif
+ 
++#ifdef IS_PY3K
++/* This is called via the PyImport_AppendInittab mechanism called
++   during initialization, to make the built-in _gdb module known to
++   Python.  */
++PyMODINIT_FUNC
++init__gdb_module (void)
++{
++  return PyModule_Create (&python_GdbModuleDef);
++}
++#endif
++
+ /* Provide a prototype to silence -Wmissing-prototypes.  */
+ extern initialize_file_ftype _initialize_python;
+ 
+@@ -1743,6 +1752,10 @@
+      remain alive for the duration of the program's execution, so
+      it is not freed after this call.  */
+   Py_SetProgramName (progname_copy);
++
++  /* Define _gdb as a built-in module.  */
++  PyImport_AppendInittab ("_gdb", init__gdb_module);
++
+ #else
+   Py_SetProgramName (progname);
+ #endif
+@@ -1752,9 +1765,7 @@
+   PyEval_InitThreads ();
+ 
+ #ifdef IS_PY3K
+-  gdb_module = PyModule_Create (&python_GdbModuleDef);
+-  /* Add _gdb module to the list of known built-in modules.  */
+-  _PyImport_FixupBuiltin (gdb_module, "_gdb");
++  gdb_module = PyImport_ImportModule ("_gdb");
+ #else
+   gdb_module = Py_InitModule ("_gdb", python_GdbMethods);
+ #endif
