@@ -101,7 +101,7 @@ do_gcc_core_pass_1() {
     core_opts+=( "host=${CT_BUILD}" )
     core_opts+=( "complibs=${CT_BUILDTOOLS_PREFIX_DIR}" )
     core_opts+=( "prefix=${CT_BUILDTOOLS_PREFIX_DIR}" )
-    core_opts+=( "cflags=${CT_CFLAGS_FOR_HOST}" )
+    core_opts+=( "cflags=${CT_CFLAGS_FOR_HOST// --std=c89}" )
     core_opts+=( "ldflags=${CT_LDFLAGS_FOR_HOST}" )
     core_opts+=( "lang_list=c" )
     core_opts+=( "build_step=core1" )
