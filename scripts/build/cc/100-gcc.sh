@@ -645,7 +645,7 @@ do_gcc_for_host() {
     final_opts+=( "host=${CT_HOST}" )
     final_opts+=( "prefix=${CT_PREFIX_DIR}" )
     final_opts+=( "complibs=${CT_HOST_COMPLIBS_DIR}" )
-    final_opts+=( "cflags=${CT_CFLAGS_FOR_HOST}" )
+    final_opts+=( "cflags=${CT_CFLAGS_FOR_HOST// --std=c89}" )
     final_opts+=( "ldflags=${CT_LDFLAGS_FOR_HOST}" )
     final_opts+=( "lang_list=$( cc_gcc_lang_list )" )
     final_opts+=( "build_step=gcc_host" )
