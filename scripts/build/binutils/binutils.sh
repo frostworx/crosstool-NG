@@ -98,7 +98,7 @@ do_binutils_for_host() {
     binutils_opts+=( "host=${CT_HOST}" )
     binutils_opts+=( "prefix=${CT_PREFIX_DIR}" )
     binutils_opts+=( "static_build=${CT_STATIC_TOOLCHAIN}" )
-    binutils_opts+=( "cflags=${CT_CFLAGS_FOR_HOST// --std=c89}" )
+    binutils_opts+=( "cflags=${CT_CFLAGS_FOR_HOST// --std=c++03}" )
     binutils_opts+=( "ldflags=${CT_LDFLAGS_FOR_HOST}" )
     binutils_opts+=( "build_manuals=${CT_BUILD_MANUALS}" )
 

@@ -27,7 +27,7 @@ do_expat_for_host() {
 
     do_expat_backend host="${CT_HOST}" \
                      prefix="${CT_HOST_COMPLIBS_DIR}" \
-                     cflags="${CT_CFLAGS_FOR_HOST// --std=c89}" \
+                     cflags="${CT_CFLAGS_FOR_HOST// --std=c++03}" \
                      ldflags="${CT_LDFLAGS_FOR_HOST}"
 
     CT_Popd
